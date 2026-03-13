@@ -11,17 +11,19 @@ import {
   Sun,
   Umbrella,
   Coffee,
-  ShoppingBag,
-  Waves
+  Waves,
+  Play,
+  PersonStanding
 } from 'lucide-react';
 
 // Itinerary Data
 const itinerary = [
-  { time: "Sabtu 19:00", activity: "Kumpul di GA", location: "Universitas Klabat", icon: Users },
-  { time: "Sabtu 21:00", activity: "Doing Something FUN", location: "Kawasan", icon: ShoppingBag },
-  { time: "Sabtu 23:00", activity: "Nongki-Nongki", location: "Sunbae", icon: Coffee },
-  { time: "Minggu 05:00", activity: "OTW Pantai", location: "Tuturuga Beach", icon: Sun },
-  { time: "Minggu 08:00", activity: "Makan Pagi", location: "Tuturuga Beach", icon: Waves },
+  { time: "Saturday 18:30", activity: "Gather at GA", location: "Universitas Klabat", icon: Users },
+  { time: "Saturday 19:30", activity: "Photo Session", location: "Maree Studio", icon: Camera },
+  { time: "Saturday 19:45", activity: "Eating Eating", location: "Megamall", icon: Coffee },
+  { time: "Saturday 20:00", activity: "Walking-walking on the Mall", location: "Megamall", icon: PersonStanding },
+  { time: "Saturday 21:00", activity: "Playing Billiards", location: "Octopool", icon: Play },
+  { time: "Saturday 23:00", activity: "OTW to the beach", location: "Tuturuga Beach", icon: Waves },
 ];
 
 // Packing List Data
@@ -31,17 +33,19 @@ const initialPackingList = [
   { id: 3, item: "Powerbank", checked: false },
   { id: 4, item: "Snack", checked: false },
   { id: 5, item: "Kacamata Hitam", checked: false },
-  { id: 6, item: "Handuk", checked: false },
+  { id: 6, item: "Tripod", checked: false },
   { id: 7, item: "Uang Cash", checked: false },
   { id: 8, item: "Obat-obatan", checked: false },
-];
-
-// Gallery Images
-const galleryImages = [
-  { src: "/images/gallery-1.jpg", alt: "Moment Bersama" },
-  { src: "/images/gallery-2.jpg", alt: "Pantai" },
-  { src: "/images/gallery-3.jpg", alt: "Nongki" },
-  { src: "/images/gallery-4.jpg", alt: "Mall" },
+  { id: 9, item: "Board Games", checked: false },
+  { id: 10, item: "Tenda", checked: false },
+  { id: 11, item: "Pacol", checked: false },
+  { id: 12, item: "Card Games", checked: false },
+  { id: 13, item: "Speaker Bluetooth", checked: false },
+  { id: 14, item: "Terminal", checked: false },
+  { id: 15, item: "Kamera", checked: false },
+  { id: 16, item: "Peralatan Mandi", checked: false },
+  { id: 17, item: "Pop Mie", checked: false },
+  { id: 18, item: "Obat-obatan", checked: false },
 ];
 
 // Google Maps Link Generator
@@ -135,7 +139,7 @@ function TimelineItem({
         
         {/* Rating Section */}
         <div className="pt-3 border-t border-gray-100">
-          <p className="text-xs text-gray-500 mb-2">Beri rating aktivitas ini:</p>
+          <p className="text-xs text-gray-500 mb-2">Rating:</p>
           <StarRating rating={rating} onRatingChange={onRatingChange} />
         </div>
       </div>
@@ -216,13 +220,13 @@ function App() {
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-cyan-300 text-xs font-medium tracking-wider uppercase">Trip Itinerary</span>
+                <span className="text-white text-xs font-medium tracking-wider uppercase">Trip Mulmed Gacor Itinerary</span>
               </div>
-              <h1 className="text-3xl font-bold text-white mb-2">Weekend Getaway</h1>
+              <h1 className="text-3xl font-bold text-white mb-2">24 HOURS W/ MULMED</h1>
               <div className="flex items-center gap-4 text-white/80">
                 <div className="flex items-center gap-1.5">
                   <Users size={16} />
-                  <span className="text-sm">8 Orang</span>
+                  <span className="text-sm">8 Kepala</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Calendar size={16} />
@@ -242,15 +246,15 @@ function App() {
               <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-3">
                 <Sun size={20} className="text-white" />
               </div>
-              <p className="text-xs text-cyan-100 mb-1">Destinasi</p>
-              <p className="font-semibold text-sm">Mall & Pantai</p>
+              <p className="text-xs text-cyan-100 mb-1">Destination</p>
+              <p className="font-semibold text-sm">Mall & Beach</p>
             </div>
             <div className="bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl p-4 text-white">
               <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-3">
                 <Umbrella size={20} className="text-white" />
               </div>
-              <p className="text-xs text-amber-100 mb-1">Durasi</p>
-              <p className="font-semibold text-sm">1 Malam</p>
+              <p className="text-xs text-amber-100 mb-1">Duration</p>
+              <p className="font-semibold text-sm">1 Night</p>
             </div>
           </section>
 
@@ -260,7 +264,7 @@ function App() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
                 <Clock size={18} className="text-white" />
               </div>
-              <h2 className="text-xl font-bold text-gray-800">Jadwal Perjalanan</h2>
+              <h2 className="text-xl font-bold text-gray-800">Trip Schedule</h2>
             </div>
             
             <div className="space-y-0">
@@ -312,46 +316,24 @@ function App() {
 
           {/* Gallery Section */}
           <section>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-                <Camera size={18} className="text-white" />
-              </div>
-              <h2 className="text-xl font-bold text-gray-800">Gallery Foto</h2>
-            </div>
             
-            <div className="grid grid-cols-2 gap-3">
-              {galleryImages.map((image, index) => (
-                <div 
-                  key={index}
-                  className="relative aspect-square rounded-2xl overflow-hidden group"
-                >
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-white text-sm font-medium">{image.alt}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Upload Placeholder */}
-            <div className="mt-3 p-6 border-2 border-dashed border-gray-200 rounded-2xl text-center hover:border-cyan-300 hover:bg-cyan-50/50 transition-colors cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-3">
-                <Camera size={24} className="text-gray-400" />
-              </div>
-              <p className="text-sm text-gray-500">Tap untuk menambah foto</p>
-            </div>
+           {/* Upload to Google Drive Button */}
+            <a 
+              href="https://drive.google.com/drive/folders/LINK_FOLDER_GDRIVE_KAMU_DISINI" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-4 flex items-center justify-center gap-2 w-full p-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-2xl transition-all shadow-md shadow-cyan-200 group"
+            >
+              <Camera size={20} className="group-hover:scale-110 transition-transform" />
+              <span className="text-sm font-semibold tracking-wide">Upload Foto ke G-Drive</span>
+            </a>
           </section>
 
           {/* Footer */}
           <footer className="pt-6 pb-8 text-center">
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mx-auto mb-4" />
-            <p className="text-sm text-gray-400">Weekend Getaway 2025</p>
-            <p className="text-xs text-gray-300 mt-1">Selamat menikmati perjalanan!</p>
+            <p className="text-sm text-gray-400">Weekend Getaway 2026 with Mulmed Gacor</p>
+            <p className="text-xs text-gray-300 mt-1">Setiap Orang ada masanya, Setiap Masa ada Orangnya. Just enjoy the journey!</p>
           </footer>
         </main>
       </div>
